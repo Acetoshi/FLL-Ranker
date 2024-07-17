@@ -1,8 +1,12 @@
-import EvaluationGrid from "../components/evaluationGrid";
+import EvaluationGrid from "../../components/forms/evaluationGrid";
+import innovationFormEn from "../formContent/innovationFormEn.json"
+import createClient from "../../"
 
 export default function judge() {
+
+
   return (
-    <main>
+    <>
       <h1>INNOVATION PROJECT</h1>
       <ul>
         <li>TEAM ID : 1</li>
@@ -18,7 +22,7 @@ export default function judge() {
         each separate row to indicate the level the team has achieved. If the
         team EXCEEDS, a short comment in the exceeds column is required
       </p>
-      <EvaluationGrid />
-    </main>
+      <EvaluationGrid evalAxes={innovationFormEn}/>
+    </>
   );
 }

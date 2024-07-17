@@ -24,7 +24,7 @@ export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
               id={el}
               value="small"
             />
-            <label for={el} className="ml-2">
+            <label htmlFor={el} className="ml-2">
               {el}
             </label>
           </li>
@@ -53,7 +53,7 @@ export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
               id={el}
               value="small"
             />
-            <label for={el} className="ml-2">
+            <label htmlFor={el} className="ml-2">
               {el}
             </label>
           </li>

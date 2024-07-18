@@ -4,11 +4,12 @@ import { createClient } from '@/utils/supabase/server';
 
 export default async function judge() {
 
+  const teamId=1;
+
   const supabase = createClient();
-  const { data: evaluation } = await supabase.from('innovation_scoresheet').select('*')
-  console.info(evaluation)
+  const { data: evaluationFromDB } = await supabase.from('innovation_scoresheet').select('*').eq('team_id',teamId)
 
-
+  console.info(evaluationFromDB)
 
   return (
     <>
@@ -27,8 +28,7 @@ export default async function judge() {
         each separate row to indicate the level the team has achieved. If the
         team EXCEEDS, a short comment in the exceeds column is required
       </p>
-      <EvaluationGrid evalAxes={innovationFormEn}/>
-      <input type='text' defaultValue={evaluation?evaluation[0].global_positive_feedback:"couldn't fetch data"}></input>
-    </>
+      <EvaluationGrid evalAxes={innovationFormEn} data={evaluationFromDB?evaluationFromDB[0]:null} />
+       </>
   );
 }

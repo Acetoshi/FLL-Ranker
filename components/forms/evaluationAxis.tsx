@@ -1,7 +1,18 @@
 "use client"
 import {EvalAxis, EvaluationState} from './interfaces'
 
-export default function EvaluationAxis({ axis, evaluation }: { axis: EvalAxis, evaluation : EvaluationState }) {
+export default function EvaluationAxis({ axis, evaluation, setEvaluation }: { axis: EvalAxis, evaluation : EvaluationState, setEvaluation:React.Dispatch<React.SetStateAction<EvaluationState>>}) {
+  // TODO a function to get the right part of "evaluation"
+
+
+  const handleRatingChange = (index: number) => {
+    console.log(evaluation.identify[0].score, '  ', index )
+    const newEvaluation = structuredClone(evaluation)
+    newEvaluation.identify[0].score=index;
+    setEvaluation(newEvaluation)
+    console.log('clicked', axis.reference)
+  }
+
   return (
     <fieldset>
       <legend className="flex flex-row items-center min-h-16 pl-4">
@@ -17,6 +28,8 @@ export default function EvaluationAxis({ axis, evaluation }: { axis: EvalAxis, e
               type="radio"
               name={`${axis.title}-1`}
               id={el}
+              checked={evaluation.identify[0].score==index+1}
+              onChange={()=>handleRatingChange(index+1)}
               value="small"
             />
             <label htmlFor={el} className="ml-2">
@@ -31,6 +44,8 @@ export default function EvaluationAxis({ axis, evaluation }: { axis: EvalAxis, e
             name={`${axis.title}-1`}
             id="size_3"
             value="large"
+            checked={evaluation.identify[0].score==4}
+            onChange={()=>handleRatingChange(4)}
           />
           <input type="text" />
         </li>

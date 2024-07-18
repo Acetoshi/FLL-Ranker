@@ -2,6 +2,7 @@
     {
       "title": "IDENTIFY",
       "subtitle": "Team had a clearly defined problem that was well researched.",
+      "reference": "identify",
       "firstSubSection": [
         "Unclear definition of the problem",
         "Partially clear definition of the problem",
@@ -16,6 +17,7 @@
     {
       "title": "DESIGN",
       "subtitle": "Team worked together while creating a project plan and developing their ideas.",
+      "reference": "design",
       "firstSubSection": [
         "Minimal evidence of an effective project plan",
         "Partial evidence of an effective project plan",
@@ -30,6 +32,7 @@
     {
       "title": "CREATE",
       "subtitle": "Team developed an original idea or built on an existing one with a prototype model/drawing to represent their solution.",
+      "reference": "create",
       "firstSubSection": [
         "Minimal explanation of innovation in solution",
         "Simple explanation of innovation in solution",
@@ -44,6 +47,7 @@
     {
       "title": "ITERATE",
       "subtitle": "Team shared their ideas with others, collected feedback, and included improvements to their solution.",
+      "reference": "iterate",
       "firstSubSection": [
         "Minimal sharing of their solution with others",
         "Solution shared with at least one person/group",
@@ -58,6 +62,7 @@
     {
       "title": "COMMUNICATE",
       "subtitle": "Team shared an effective presentation of their solution, its impact on others, and celebrated their team’s progress.",
+      "reference": "communicate",
       "firstSubSection": [
         "Unclear explanation of the solution and its potential impact on others",
         "Partially clear explanation of the solution and its potential impact on others",

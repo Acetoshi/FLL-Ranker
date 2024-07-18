@@ -1,9 +1,8 @@
 import EvaluationGrid from "../../../../components/forms/evaluationGrid";
-// import innovationFormEn from "../formContent/innovationFormEn.json"
 import { createClient } from "@/utils/supabase/server";
 import { EvalAxis } from "../../../../components/forms/interfaces";
 
-export default async function judge({
+export default async function InnovationEvaluation({
   params,
 }: {
   params: { teamId: string };
@@ -103,14 +102,14 @@ export default async function judge({
 
   return (
     <>
-      <h1>INNOVATION PROJECT</h1>
+      <h1 className="text-4xl font-extrabold m-8">INNOVATION PROJECT</h1>
       <ul>
-        <li>TEAM ID : 1</li>
+        <li>TEAM ID : {teamId}</li>
         <li>TEAM NAME : Collège Saint-Fiacre</li>
         <li>JUDGING ROOM : 1</li>
       </ul>
       <section className="max-w-screen-sm m-8">
-        <h2>INSTRUCTIONS</h2>
+        <h2 className="text-xl font-extrabold">INSTRUCTIONS</h2>
         <p className="mt-2">
           Teams should communicate to the judges their achievement in each of
           the following criteria. This rubric should be filled out according to

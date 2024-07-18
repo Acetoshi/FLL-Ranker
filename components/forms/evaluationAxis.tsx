@@ -33,6 +33,7 @@ export default function EvaluationAxis({
           >
             <input
               type="radio"
+              className="cursor-pointer"
               name={`${axis.title}-1`}
               id={el}
               checked={evaluation[axis.reference][0].score == index + 1}
@@ -47,6 +48,7 @@ export default function EvaluationAxis({
         <li className="p-3 w-full flex items-center ps-4">
           <input
             type="radio"
+            className="cursor-pointer"
             name={`${axis.title}-1`}
             id="size_3"
             checked={evaluation[axis.reference][0].score == 4}
@@ -59,11 +61,11 @@ export default function EvaluationAxis({
         {axis.secondSubSection.map((el, index) => (
           <li
             key={el}
-            className="p-3 w-full flex items-center ps-4 border-r-2  border-black"
+            className="p-3 w-full flex items-center ps-4 border-r-2 border-black"
           >
             <input
               type="radio"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              className="cursor-pointer"
               name={`${axis.title}-2`}
               id={el}
               checked={evaluation[axis.reference][1].score == index + 1}
@@ -78,6 +80,7 @@ export default function EvaluationAxis({
         <li className="p-3 w-full flex items-center ps-4">
           <input
             type="radio"
+            className="cursor-pointer"
             name={`${axis.title}-2`}
             id="size_3"
             checked={evaluation[axis.reference][1].score == 4}

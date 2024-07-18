@@ -13,10 +13,10 @@ export default function EvaluationGrid({evalAxes}: {evalAxes : EvalAxis[]}) {
   return (
     <form className='max-w-screen-lg'>
       <ul className="evaluation-title grid grid-cols-4 justify-items-center justify-center">
-        <li>BEGINNING 1</li>
-        <li>DEVELOPING 2</li>
-        <li>ACCOMPLISHED 3</li>
-        <li>EXCEEDS 4</li>
+        <li className='text-center'>BEGINNING <br/>1</li>
+        <li className='text-center'>DEVELOPING <br/>2</li>
+        <li className='text-center'>ACCOMPLISHED <br/>3</li>
+        <li className='text-center'>EXCEEDS <br/>4</li>
       </ul>
       {evalAxes.map(evalAxis=>(<EvaluationAxis axis={evalAxis}/>))}
       

@@ -1,9 +1,12 @@
 import EvaluationGrid from "../../components/forms/evaluationGrid";
 import innovationFormEn from "../formContent/innovationFormEn.json"
+import { createClient } from '@/utils/supabase/server';
 
+export default async function judge() {
 
-export default function judge() {
-
+  const supabase = createClient();
+  const { data: evaluation } = await supabase.from('innovation_scoresheet').select('*')
+  console.info(evaluation)
 
   return (
     <>
@@ -23,6 +26,7 @@ export default function judge() {
         team EXCEEDS, a short comment in the exceeds column is required
       </p>
       <EvaluationGrid evalAxes={innovationFormEn}/>
+      <input type='text' defaultValue={evaluation[0].global_positive_feedback}></input>
     </>
   );
 }

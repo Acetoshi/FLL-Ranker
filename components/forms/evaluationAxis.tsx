@@ -16,7 +16,7 @@ export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
         {axis.firstSubSection.map((el, index) => (
           <li
             key={el}
-            className="w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700"
+            className="p-3 w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700"
           >
             <input
               type="radio"
@@ -30,7 +30,7 @@ export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
           </li>
         ))}
 
-        <li className="w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700">
+        <li className="p-3 w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700">
           <input
             type="radio"
             name={`${axis.title}-1`}
@@ -44,7 +44,7 @@ export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
         {axis.secondSubSection.map((el, index) => (
           <li
             key={el}
-            className="w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700"
+            className="p-3 w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700"
           >
             <input
               type="radio"
@@ -59,7 +59,7 @@ export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
           </li>
         ))}
 
-        <li className="w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700">
+        <li className="p-3 w-full flex items-center ps-4 border border-gray-200 dark:border-gray-700">
           <input
             type="radio"
             name={`${axis.title}-2`}

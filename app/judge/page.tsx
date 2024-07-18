@@ -89,8 +89,6 @@ export default async function judge() {
   const supabase = createClient();
   const { data: evaluationFromDB } = await supabase.from('innovation_scoresheet').select('*').eq('team_id',teamId)
 
-  console.info(evaluationFromDB)
-
   return (
     <>
       <h1>INNOVATION PROJECT</h1>
@@ -99,15 +97,16 @@ export default async function judge() {
         <li>TEAM NAME : Collège Saint-Fiacre</li>
         <li>JUDGING ROOM : 1</li>
       </ul>
-
+      <section className="max-w-screen-sm m-8">
       <h2>INSTRUCTIONS</h2>
-      <p>
+      <p className="mt-2">
         Teams should communicate to the judges their achievement in each of the
         following criteria. This rubric should be filled out according to the
         Innovation Project presentation. Judges are required to tick one box on
         each separate row to indicate the level the team has achieved. If the
         team EXCEEDS, a short comment in the exceeds column is required
       </p>
+      </section>
       <EvaluationGrid evalAxes={evalAxes} data={evaluationFromDB?evaluationFromDB[0]:null} />
        </>
   );

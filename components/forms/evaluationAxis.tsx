@@ -1,12 +1,7 @@
-// Typescript prop validation
-interface EvalAxis {
-  title: string;
-  subtitle: string;
-  firstSubSection: string[];
-  secondSubSection: string[];
-}
+"use client"
+import {EvalAxis, EvaluationState} from './interfaces'
 
-export default function EvaluationAxis({ axis }: { axis: EvalAxis }) {
+export default function EvaluationAxis({ axis, evaluation }: { axis: EvalAxis, evaluation : EvaluationState }) {
   return (
     <fieldset>
       <legend className="flex flex-row items-center min-h-16 pl-4">

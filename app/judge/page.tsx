@@ -8,6 +8,8 @@ export default async function judge() {
   const { data: evaluation } = await supabase.from('innovation_scoresheet').select('*')
   console.info(evaluation)
 
+
+
   return (
     <>
       <h1>INNOVATION PROJECT</h1>

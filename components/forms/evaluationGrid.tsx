@@ -39,7 +39,7 @@ export default function EvaluationGrid({
 
   const [evaluation, setEvaluation] = useState<EvaluationState>(initialState);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
     const updatedEvaluation = {

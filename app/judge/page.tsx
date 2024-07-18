@@ -26,7 +26,7 @@ export default async function judge() {
         team EXCEEDS, a short comment in the exceeds column is required
       </p>
       <EvaluationGrid evalAxes={innovationFormEn}/>
-      <input type='text' defaultValue={evaluation[0].global_positive_feedback}></input>
+      <input type='text' defaultValue={evaluation?evaluation[0].global_positive_feedback:"couldn't fetch data"}></input>
     </>
   );
 }

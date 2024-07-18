@@ -2,13 +2,11 @@
 import {EvalAxis, EvaluationState} from './interfaces'
 
 export default function EvaluationAxis({ axis, evaluation, setEvaluation }: { axis: EvalAxis, evaluation : EvaluationState, setEvaluation:React.Dispatch<React.SetStateAction<EvaluationState>>}) {
-  // TODO a function to get the right part of "evaluation"
 
-
-  const handleRatingChange = (index: number) => {
-    console.log(evaluation.identify[0].score, '  ', index )
+  const handleRatingChange = (index: number, section :number) => {
+    console.log(evaluation[axis.reference][0].score, '  ', index )
     const newEvaluation = structuredClone(evaluation)
-    newEvaluation.identify[0].score=index;
+    newEvaluation[axis.reference][section].score=index;
     setEvaluation(newEvaluation)
     console.log('clicked', axis.reference)
   }
@@ -28,9 +26,8 @@ export default function EvaluationAxis({ axis, evaluation, setEvaluation }: { ax
               type="radio"
               name={`${axis.title}-1`}
               id={el}
-              checked={evaluation.identify[0].score==index+1}
-              onChange={()=>handleRatingChange(index+1)}
-              value="small"
+              checked={evaluation[axis.reference][0].score==index+1}
+              onChange={()=>handleRatingChange(index+1,0)}
             />
             <label htmlFor={el} className="ml-2">
               {el}
@@ -43,9 +40,8 @@ export default function EvaluationAxis({ axis, evaluation, setEvaluation }: { ax
             type="radio"
             name={`${axis.title}-1`}
             id="size_3"
-            value="large"
-            checked={evaluation.identify[0].score==4}
-            onChange={()=>handleRatingChange(4)}
+            checked={evaluation[axis.reference][0].score==4}
+            onChange={()=>handleRatingChange(4,0)}
           />
           <input type="text" />
         </li>
@@ -61,7 +57,8 @@ export default function EvaluationAxis({ axis, evaluation, setEvaluation }: { ax
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               name={`${axis.title}-2`}
               id={el}
-              value="small"
+              checked={evaluation[axis.reference][1].score==index+1}
+              onChange={()=>handleRatingChange(index+1,1)}
             />
             <label htmlFor={el} className="ml-2">
               {el}
@@ -74,7 +71,8 @@ export default function EvaluationAxis({ axis, evaluation, setEvaluation }: { ax
             type="radio"
             name={`${axis.title}-2`}
             id="size_3"
-            value="large"
+            checked={evaluation[axis.reference][1].score==4}
+            onChange={()=>handleRatingChange(4,1)}
           />
           <input type="text" />
         </li>

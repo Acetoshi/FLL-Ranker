@@ -2,9 +2,9 @@
 export interface EvalAxis {
   title: string;
   subtitle: string;
+  reference: "identify" | "design" | "create" | "iterate" | "communicate";
   firstSubSection: string[];
   secondSubSection: string[];
-  reference: "identify" | "design" | "create" | "iterate" | "communicate";
 }
 
 export interface EvaluationItem {
@@ -38,7 +38,7 @@ export interface EvaluationDB {
   design_all_involved_comment: string | null;
   create_clear_model: number | null;
   create_clear_model_comment: string | null;
-  create_explanation_of_innovation: string | null;
+  create_explanation_of_innovation: number | null;
   create_explanation_of_innovation_comment: string | null;
   iterate_sharing_of_solution: number | null;
   iterate_sharing_of_solution_coment: string | null;

@@ -10,13 +10,30 @@ export default function EvaluationAxis({
   evaluation: EvaluationState;
   setEvaluation: React.Dispatch<React.SetStateAction<EvaluationState>>;
 }) {
+
+  // This function updates the state based on the rating that was selected
   const handleRatingChange = (index: number, section: number) => {
-    console.log(evaluation[axis.reference][0].score, "  ", index);
     const newEvaluation = structuredClone(evaluation);
     newEvaluation[axis.reference][section].score = index;
+
+    // if score isn't 4, no need to comment in the exceed column
+    if (index<4) {
+      newEvaluation[axis.reference][section].comment = "";
+    }
+
     setEvaluation(newEvaluation);
-    console.log("clicked", axis.reference);
   };
+
+  // This function updates the state based on the comment that was entered
+  const handleTextEdit = (event: React.ChangeEvent<HTMLTextAreaElement>, section: number) => {
+
+    const newEvaluation = structuredClone(evaluation);
+    // if there's a comment, the score is necessarily 4
+    newEvaluation[axis.reference][section].score = 4;
+    newEvaluation[axis.reference][section].comment = event.target.value;
+    setEvaluation(newEvaluation);
+  }
+
 
   return (
     <fieldset>
@@ -54,7 +71,7 @@ export default function EvaluationAxis({
             checked={evaluation[axis.reference][0].score == 4}
             onChange={() => handleRatingChange(4, 0)}
           />
-           <textarea className="w-full h-full ml-4" placeholder={evaluation[axis.reference][0].score == 4?"Why does the team exceed ?":""}/>
+           <textarea className="w-full h-full ml-4" value={evaluation[axis.reference][0].comment} onChange={e => handleTextEdit(e,0)} placeholder={evaluation[axis.reference][0].score == 4?"Why does the team exceed ?":""}/>
         </li>
       </ul>
       <ul className="grid grid-cols-4 justify-items-center justify-center w-full border-t-2 border-black">
@@ -86,7 +103,7 @@ export default function EvaluationAxis({
             checked={evaluation[axis.reference][1].score == 4}
             onChange={() => handleRatingChange(4, 1)}
           />
-          <textarea className="w-full h-full ml-4" placeholder={evaluation[axis.reference][1].score == 4?"Why does the team exceed ?":""}/>
+          <textarea className="w-full h-full ml-4" value={evaluation[axis.reference][1].comment} onChange={e => handleTextEdit(e,1)} placeholder={evaluation[axis.reference][1].score == 4?"Why does the team exceed ?":""}/>
         </li>
       </ul>
     </fieldset>

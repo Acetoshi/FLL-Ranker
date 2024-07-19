@@ -103,7 +103,7 @@ export default async function InnovationEvaluation({
   return (
     <>
       <h1 className="text-4xl font-extrabold m-8">INNOVATION PROJECT</h1>
-      <ul>
+      <ul className="flex flex-row gap-1">
         <li>TEAM ID : {teamId}</li>
         <li>TEAM NAME : Collège Saint-Fiacre</li>
         <li>JUDGING ROOM : 1</li>

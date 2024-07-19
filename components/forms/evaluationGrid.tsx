@@ -7,11 +7,11 @@ import { createClient } from "@/utils/supabase/client";
 export default function EvaluationGrid({
   evalAxes,
   data,
-  teamId
+  teamId,
 }: {
   evalAxes: EvalAxis[];
   data: EvaluationDB | null;
-  teamId :number;
+  teamId: number;
 }) {
   const initialState: EvaluationState = {
     identify: [
@@ -100,7 +100,27 @@ export default function EvaluationGrid({
       .eq("team_id", teamId);
 
     console.log(error?.code);
+
+    closeModal();
   };
+
+  // this function validates the content of the form
+  function validate(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    // the as HTMLDialogElement is called to enable typescript to build the app
+    const dialog = document.getElementById(
+      "dialog-validate"
+    ) as HTMLDialogElement;
+    e.preventDefault();
+    dialog && dialog.showModal();
+  }
+
+  // this function closes the modal
+  function closeModal() {
+    const dialog = document.getElementById(
+      "dialog-validate"
+    ) as HTMLDialogElement;
+    dialog && dialog.close();
+  }
 
   return (
     <>
@@ -128,14 +148,67 @@ export default function EvaluationGrid({
             key={evalAxis.title}
           />
         ))}
+
+        <section className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black">
+          <p>
+            <strong>APPRÉCIATION GLOBALE</strong> - ces commentaires seront
+            paratagés aux équipes, soyez bienveillants.
+          </p>
+        </section>
+
+        <ul className="evaluation-title grid grid-cols-2 justify-items-center justify-center border-t-2 border-black">
+          <li className="text-center p-3 flex flex-col w-full border-r-2 border-black w-full min-h-48">
+            <p>BON TRAVAIL</p>
+            <textarea className="h-full" placeholder={"jimmy"} />
+          </li>
+          <li className="text-center p-3 flex flex-col w-full">
+            <p>PENSEZ A</p>
+            <textarea className="h-full" placeholder={"jimmy"} />
+          </li>
+        </ul>
+
+        <section className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black">
+          <p>
+            <strong>NOTES JURY</strong> - ces notes ne seront pas partagées aux
+            équipes
+          </p>
+        </section>
+
+        <section className="flex flex-col p-3 items-center min-h-16 w-full border-t-2 border-black min-h-48">
+          <textarea
+            className="w-full min-h-48"
+            placeholder={
+              "Notez quelque chose pour vous souvenir de l'équipe, un point d'hésitation sur l'évaluation ?"
+            }
+          />
+        </section>
       </form>
       <button
         type="submit"
-        onClick={handleSubmit}
+        onClick={validate}
         className="m-8 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
       >
         Submit
       </button>
+      <dialog id="dialog-validate" className="p-8 rounded-2xl">
+        <p className="mb-8">Confirmer la feuille de score ?</p>
+        <section className="flex flex-row justify-between">
+          <button
+            onClick={closeModal}
+            className="focus:outline-none text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 focus:  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+          >
+            {" "}
+            RETOUR
+          </button>
+          <button
+            onClick={handleSubmit}
+            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+          >
+            {" "}
+            VALIDER
+          </button>
+        </section>
+      </dialog>
     </>
   );
 }

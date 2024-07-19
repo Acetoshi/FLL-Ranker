@@ -54,15 +54,15 @@
   }
 
   .btn.innovation {
-    @apply text-white bg-innovation-900;
+    @apply text-black bg-innovation-700 hover:bg-innovation-900;
   }
 
   .btn.core-values {
-    @apply text-white bg-corevalues-500;
+    @apply text-black bg-corevalues-500 hover:bg-corevalues-700;
   }
 
   .btn.robot-design {
-    @apply text-white bg-robotdesign-700;
+    @apply text-black bg-robotdesign-700 hover:bg-robotdesign-900;
   }
 
   .btn.validate {

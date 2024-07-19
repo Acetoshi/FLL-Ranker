@@ -222,7 +222,7 @@ export default function EvaluationGrid({
           <li className="text-center p-3 flex flex-col w-full border-r-2 border-black w-full min-h-48">
             <p>BON TRAVAIL</p>
             <textarea
-              className="h-full"
+              className="h-full resize-none"
               placeholder={
                 "Quels sont les points positifs que vous avez remarqué ?"
               }
@@ -233,7 +233,7 @@ export default function EvaluationGrid({
           <li className="text-center p-3 flex flex-col w-full">
             <p>PENSEZ A</p>
             <textarea
-              className="h-full"
+              className="h-full resize-none"
               placeholder={"Qu'est ce que l'équipe peut améliorer ?"}
               value={evaluation.globalNegativeFeedback}
               onChange={(e) => handleChange(e, "negative")}
@@ -250,7 +250,7 @@ export default function EvaluationGrid({
 
         <section className="flex flex-col p-3 items-center min-h-16 w-full border-t-2 border-black min-h-48">
           <textarea
-            className="w-full min-h-48"
+            className="w-full min-h-48 resize-none"
             placeholder={
               "Notez quelque chose pour vous souvenir de l'équipe, un point d'hésitation sur l'évaluation ?"
             }

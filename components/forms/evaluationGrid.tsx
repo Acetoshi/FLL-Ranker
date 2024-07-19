@@ -186,19 +186,19 @@ export default function EvaluationGrid({
 
   return (
     <>
-      <form className="max-w-screen-lg border-2 border-black rounded-2xl">
+      <form className="max-w-screen-lg border-2 border-black rounded-2xl overflow-hidden">
         <ul className="evaluation-title grid grid-cols-4 justify-items-center justify-center">
-          <li className="text-center p-3 border-r-2  border-black w-full">
+          <li className="text-center p-3 border-r-2  border-black w-full bg-innovation-100">
             <strong>BEGINNING</strong> <br />1
           </li>
-          <li className="text-center p-3 border-r-2  border-black w-full">
+          <li className="text-center p-3 border-r-2  border-black w-full bg-innovation-300">
             <strong>DEVELLOPPING</strong> <br />2
           </li>
-          <li className="text-center p-3 border-r-2  border-black w-full">
+          <li className="text-center p-3 border-r-2  border-black w-full bg-innovation-500">
             <strong>ACCOMPLISHED</strong>
             <br />3
           </li>
-          <li className="text-center p-3">
+          <li className="text-center p-3 w-full bg-innovation-700">
             <strong>EXCEEDS</strong> <br />4
           </li>
         </ul>
@@ -211,7 +211,7 @@ export default function EvaluationGrid({
           />
         ))}
 
-        <section className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black">
+        <section className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black bg-innovation-300">
           <p>
             <strong>APPRÉCIATION GLOBALE</strong> - Ces commentaires seront
             paratagés aux équipes, soyez bienveillants.
@@ -241,7 +241,7 @@ export default function EvaluationGrid({
           </li>
         </ul>
 
-        <section className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black">
+        <section className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black bg-innovation-300">
           <p>
             <strong>NOTES JURY</strong> - ces notes ne seront pas partagées aux
             équipes
@@ -262,9 +262,8 @@ export default function EvaluationGrid({
       <button
         type="submit"
         onClick={validate}
-        className="m-8 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
-      >
-        Submit
+        className="btn validate mt-8 mb-12">
+        VALIDER L'ÉVALUATION
       </button>
       <dialog id="dialog-validate" className="p-8 rounded-2xl">
         <p className="mb-8">Confirmer la feuille de score ?</p>
@@ -276,10 +275,7 @@ export default function EvaluationGrid({
             {" "}
             RETOUR
           </button>
-          <button
-            onClick={handleSubmit}
-            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-          >
+          <button onClick={handleSubmit} className="btn validate">
             {" "}
             VALIDER
           </button>
@@ -293,7 +289,7 @@ export default function EvaluationGrid({
         <section className="flex flex-row justify-center">
           <button
             onClick={() => closeModal("dialog-incomplete")}
-            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+            className="btn validate"
           >
             {" "}
             TERMINER L'EVALUATION

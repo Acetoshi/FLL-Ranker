@@ -37,7 +37,7 @@ export default function EvaluationAxis({
 
   return (
     <fieldset>
-      <legend className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black">
+      <legend className="flex flex-row items-center min-h-16 pl-4 w-full border-t-2 border-black bg-innovation-300">
         <p>
           <strong>{axis.title}</strong> {` - ${axis.subtitle}`}
         </p>

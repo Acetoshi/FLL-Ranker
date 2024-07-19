@@ -16,13 +16,13 @@ export default async function InnovationDashboard() {
               <article className="border border-black p-4 rounded-2xl w-64 aspect-square flex flex-col justify-between">
                 <h2 className="m-2">{`${team.name} - #${team.id}`}</h2>
                 <section className="flex flex-col">
-                <Link href={`/judge/innovation/${team.id}`} className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                <Link href={`/judge/innovation/${team.id}`} className="btn innovation">
                   Noter innovation
                 </Link>
-                <Link href={`/judge/design/${team.id}`} className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                <Link href={`/judge/design/${team.id}`} className="btn robot-design">
                   Noter design robot
                 </Link>
-                <Link href={`/judge/corevalues/${team.id}`} className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                <Link href={`/judge/corevalues/${team.id}`} className="btn core-values">
                   Noter core values
                 </Link>
                 </section>
@@ -33,3 +33,5 @@ export default async function InnovationDashboard() {
     </>
   );
 }
+
+// className="focus:outline-none text-white bg-[--innovation-color] hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"

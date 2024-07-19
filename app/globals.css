@@ -8,6 +8,27 @@
     --btn-background: 200 10% 91%;
     --btn-background-hover: 200 10% 89%;
     --foreground: 200 50% 3%;
+
+    /* Core Values Color */
+    --core-values-color-100: 16 100% 89%;
+    --core-values-color-300: 16 100% 79%;
+    --core-values-color-500: 16 100% 69%;
+    --core-values-color-700: 16 100% 59%;
+    --core-values-color-900: 16 100% 49%;
+
+    /* Innovation Color */
+    --innovation-color-100: 194 90% 88%;
+    --innovation-color-300: 194 90% 78%;
+    --innovation-color-500: 194 90% 68%;
+    --innovation-color-700: 194 90% 58%;
+    --innovation-color-900: 194 90% 48%;
+
+    /* Robot Design Color */
+    --robot-design-color-100: 144 45% 86%;
+    --robot-design-color-300: 144 45% 76%;
+    --robot-design-color-500: 144 45% 66%;
+    --robot-design-color-700: 144 45% 56%;
+    --robot-design-color-900: 144 45% 46%;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -23,5 +44,28 @@
 @layer base {
   * {
     @apply border-foreground/20;
+  }
+}
+
+/* This is the equivalent of CSS classes but using tailwind standards */
+@layer components {
+  .btn {
+    @apply focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2;
+  }
+
+  .btn.innovation {
+    @apply text-white bg-innovation-900;
+  }
+
+  .btn.core-values {
+    @apply text-white bg-corevalues-500;
+  }
+
+  .btn.robot-design {
+    @apply text-white bg-robotdesign-700;
+  }
+
+  .btn.validate {
+    @apply text-white bg-green-600 focus:ring-green-300 hover:bg-green-800;
   }
 }

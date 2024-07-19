@@ -71,7 +71,7 @@ export default function EvaluationAxis({
             checked={evaluation[axis.reference][0].score == 4}
             onChange={() => handleRatingChange(4, 0)}
           />
-           <textarea className="w-full h-full ml-4" value={evaluation[axis.reference][0].comment} onChange={e => handleTextEdit(e,0)} placeholder={evaluation[axis.reference][0].score == 4?"Why does the team exceed ?":""}/>
+           <textarea className="w-full h-full ml-4 resize-none" value={evaluation[axis.reference][0].comment} onChange={e => handleTextEdit(e,0)} placeholder={evaluation[axis.reference][0].score == 4?"Why does the team exceed ?":""}/>
         </li>
       </ul>
       <ul className="grid grid-cols-4 justify-items-center justify-center w-full border-t-2 border-black">
@@ -103,7 +103,7 @@ export default function EvaluationAxis({
             checked={evaluation[axis.reference][1].score == 4}
             onChange={() => handleRatingChange(4, 1)}
           />
-          <textarea className="w-full h-full ml-4" value={evaluation[axis.reference][1].comment} onChange={e => handleTextEdit(e,1)} placeholder={evaluation[axis.reference][1].score == 4?"Why does the team exceed ?":""}/>
+          <textarea className="w-full h-full ml-4 resize-none" value={evaluation[axis.reference][1].comment} onChange={e => handleTextEdit(e,1)} placeholder={evaluation[axis.reference][1].score == 4?"Why does the team exceed ?":""}/>
         </li>
       </ul>
     </fieldset>
